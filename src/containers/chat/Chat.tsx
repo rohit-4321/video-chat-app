@@ -1,6 +1,6 @@
 export const Chat = () => {
-	return <div className="flex justify-center items-center bg-black h-[100%]">
-		<p>Name</p>
+	return <div className="h-full">
+		<p>Chat Screen</p>
 	</div>;
 };
 
