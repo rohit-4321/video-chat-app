@@ -1,7 +1,18 @@
 import { InputTextField } from '../../components/Input';
 import { MessageContainer } from './MessageContainer';
+import { useAppSelector } from '../../redux/hooks';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 
 export const Chat = () => {
+	const userName = useAppSelector((state) => state.userReducer.userName);
+	const navigate = useNavigate();
+	useEffect(() => {
+		if(!userName){
+			navigate('/');
+		}
+	}, [userName]);
 	return <div className="h-full">
 		<div className="flex flex-col h-full sm:flex-row">
 			<div className="basis-1/4 flex max-h-[13rem] border-b-[1px] border-gray-500 min-h-[11rem] sm:max-h-[none] sm:max-w-sm sm:flex-col sm:border-r-[1px]">
