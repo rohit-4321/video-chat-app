@@ -1,11 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { userReducer } from './slices/userSlice';
+import { socketReducer } from './slices/socketSlice';
+import { socketMiddleware } from './middleware/socketMiddleware';
 
 export const store = configureStore({
 	reducer: {
-		userReducer
+		userReducer,
+		socketReducer,
 	},
-	middleware: (getDefaultMiddleware) => getDefaultMiddleware()
+	middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(socketMiddleware)
 });
 
 export type RootState = ReturnType<typeof store.getState>

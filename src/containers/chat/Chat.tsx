@@ -1,16 +1,18 @@
 import { InputTextField } from '../../components/Input';
 import { MessageContainer } from './MessageContainer';
-import { useAppSelector } from '../../redux/hooks';
+import { useAppDispatcher, useAppSelector } from '../../redux/hooks';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-
+import { connectSocket } from '../../redux/slices/socketActions';
 export const Chat = () => {
 	const userName = useAppSelector((state) => state.userReducer.userName);
 	const navigate = useNavigate();
+	const dispatch = useAppDispatcher();
 	useEffect(() => {
 		if(!userName){
 			navigate('/');
+		}else{
+			dispatch(connectSocket());
 		}
 	}, [userName]);
 	return <div className="h-full">
