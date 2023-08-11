@@ -21,3 +21,23 @@ body {
   margin: 0;
   padding: 0;
 }
+
+.portal-initial {
+  transform: translateX(-100px);
+  -webkit-transform: translateX(-100px);
+    -moz-transform: translateX(-100px);
+    -o-transform: translateX(-100px);
+    -ms-transform: translateX(-100px);
+  transition: transform 1s ease; 
+}
+
+/* .portal-initial.move-to-original {
+  transform: translateX(0);
+} */
+.move-to-original:hover {
+  transform: translateX(0px);
+  -webkit-transform: translateX(0px);
+    -moz-transform: translateX(0px);
+    -o-transform: translateX(0px);
+    -ms-transform: translateX(0px);
+}
